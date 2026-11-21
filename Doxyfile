@@ -1,0 +1,13 @@
+PROJECT_NAME           = "Space Invaders"
+PROJECT_BRIEF          = "Classic Space Invaders built with Python's turtle module"
+OUTPUT_DIRECTORY       = docs/doxygen
+INPUT                  = src README.md
+FILE_PATTERNS          = *.py *.md
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+OPTIMIZE_OUTPUT_JAVA   = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = YES

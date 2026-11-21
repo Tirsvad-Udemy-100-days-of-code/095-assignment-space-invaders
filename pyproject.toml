@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "space-invaders"
+version = "0.1.0"
+description = "Classic Space Invaders shoot 'em up built with Python's turtle module (Udemy 100 Days of Code, Day 95)."
+readme = "README.md"
+requires-python = ">=3.14"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Jens Tirsvad Nielsen" }]
+keywords = ["space-invaders", "turtle", "game", "100-days-of-code"]
+# The game uses only the standard library (turtle needs Tk).
+dependencies = []
+
+[project.urls]
+Repository = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders"
+Documentation = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki"
+"Issue tracker" = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+py-modules = ["main", "constants"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
