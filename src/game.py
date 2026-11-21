@@ -6,11 +6,12 @@ import turtle
 
 import constants
 from bullet import Bullet
+from fleet import Fleet
 from ship import Ship
 
 
 class Game:
-    """@brief Ties the screen, the ship and the bullet together."""
+    """@brief Ties the screen, the ship, the bullet and the fleet together."""
 
     def __init__(self, screen: turtle.Screen) -> None:
         """@brief Create the objects and bind the keys.
@@ -20,6 +21,7 @@ class Game:
         self.screen = screen
         self.ship = Ship()
         self.bullet = Bullet()
+        self.fleet = Fleet()
         screen.listen()
         screen.onkeypress(self.ship.go_left, "Left")
         screen.onkeypress(self.ship.go_right, "Right")
