@@ -14,5 +14,5 @@ SCREEN_COLOR: str = "black"
 ## Window title.
 SCREEN_TITLE: str = "Space Invaders"
 
-## Pause between two frames in seconds.
-FRAME_DELAY: float = 0.02
+## Pause between two frames in milliseconds.
+FRAME_DELAY_MS: int = 20

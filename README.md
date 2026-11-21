@@ -94,7 +94,12 @@ With the `.venv` active:
 python -m pytest
 ```
 
-Tests of the `turtle` objects are skipped when no display or no Tk library is available.
+Tests that open a `turtle` window are skipped on your machine, so a test run never takes over your desktop. They run in the Docker container on a virtual display:
+
+```bash
+docker build -t space-invaders-shots tools
+docker run --rm -v "$PWD:/work" -e SPACE_INVADERS_GUI_TESTS=1 -e PYTHONPATH=src --entrypoint bash space-invaders-shots -c "xvfb-run -a python -m pytest"
+```
 
 Optional checks:
 
