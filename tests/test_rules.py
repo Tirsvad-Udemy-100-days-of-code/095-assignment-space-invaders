@@ -94,3 +94,22 @@ def test_barriers_are_spread_evenly_around_the_centre() -> None:
 def test_barrier_blocks_are_laid_out_row_by_row() -> None:
     positions = rules.barrier_positions(1, 2, 2, 20, 100, -140)
     assert positions == [(-10, -140), (10, -140), (-10, -160), (10, -160)]
+
+
+def test_the_game_goes_on_while_aliens_are_far_away() -> None:
+    state = rules.game_state([(0, 200)], (0, -250), 30, -230)
+    assert state == "playing"
+
+
+def test_the_game_is_lost_when_an_alien_touches_the_ship() -> None:
+    state = rules.game_state([(0, 200), (10, -240)], (0, -250), 30, -300)
+    assert state == "lost"
+
+
+def test_the_game_is_lost_when_an_alien_reaches_the_ship_row() -> None:
+    state = rules.game_state([(300, -230)], (0, -250), 30, -230)
+    assert state == "lost"
+
+
+def test_the_game_is_won_when_no_alien_is_left() -> None:
+    assert rules.game_state([], (0, -250), 30, -230) == "won"

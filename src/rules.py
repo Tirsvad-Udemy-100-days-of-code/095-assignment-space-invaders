@@ -2,6 +2,8 @@
 @brief Game rules that need no screen, so they can be tested without a display.
 """
 
+import constants
+
 
 def clamp(value: float, low: float, high: float) -> float:
     """@brief Limit a value to a range.
@@ -128,3 +130,29 @@ def barrier_positions(
                 x = centre + (column - (columns - 1) / 2) * block
                 positions.append((x, top_y - row * block))
     return positions
+
+
+def game_state(
+    alien_positions: list[tuple[float, float]],
+    ship_position: tuple[float, float],
+    touch_distance: float,
+    line: float,
+) -> str:
+    """@brief Decide whether the game goes on, is lost or is won.
+
+    The game is lost when an alien touches the ship or reaches the ship's row,
+    and won when no alien is left.
+
+    @param alien_positions Positions of the aliens still alive.
+    @param ship_position Position of the ship.
+    @param touch_distance Largest centre distance that counts as touching.
+    @param line Alien height at which the ship's row is reached.
+    @return One of the `STATE_*` values of the constants module.
+    """
+    if not alien_positions:
+        return constants.STATE_WON
+    ship_x, ship_y = ship_position
+    for x, y in alien_positions:
+        if y <= line or is_hit(x, y, ship_x, ship_y, touch_distance):
+            return constants.STATE_LOST
+    return constants.STATE_PLAYING

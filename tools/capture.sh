@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # Runs under the virtual display started by take-screenshot.sh.
 # Usage: capture.sh <output.png> <seconds> [xdotool key names...]
+# Env: SCENARIO is a Python file run instead of src/main.py (see tools/scenarios).
 set -euo pipefail
 
 out=$1
 seconds=$2
 shift 2
 
-python src/main.py &
+python "${SCENARIO:-src/main.py}" &
 game=$!
 sleep 1
 window=$(xdotool search --name "Space Invaders" | head -n 1)

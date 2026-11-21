@@ -125,7 +125,7 @@ docker run --rm -v "$PWD:/work" space-invaders-shots step-01-screen 3
 ```
 
 The arguments are the file name (written to `docs/images/`), the seconds to wait
-and, optionally, key names to press, for example `Left Left space`.
+and, optionally, key names to press, for example `Left Left space`. Set `-e SCENARIO=tools/scenarios/game_over.py` to run a prepared situation (for example a lost game) instead of `src/main.py`.
 
 ## 📄 License
 

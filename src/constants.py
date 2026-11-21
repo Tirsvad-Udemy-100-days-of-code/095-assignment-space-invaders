@@ -88,3 +88,24 @@ BARRIER_HEALTH: int = 3
 BARRIER_COLORS: tuple[str, ...] = ("firebrick", "goldenrod", "forestgreen")
 ## Distance between bullet and block centres that counts as a hit.
 BARRIER_HIT_DISTANCE: int = 14
+
+## Game state while the game is running.
+STATE_PLAYING: str = "playing"
+## Game state after an alien reached the ship.
+STATE_LOST: str = "lost"
+## Game state after the last alien was shot.
+STATE_WON: str = "won"
+## Distance between an alien and the ship that counts as touching.
+GAME_OVER_DISTANCE: int = 30
+## Alien height at which the aliens have reached the ship's row.
+GAME_OVER_LINE: int = SHIP_Y + 20
+## Font of the end message.
+BANNER_FONT: tuple[str, int, str] = ("Courier", 48, "bold")
+## Vertical position of the end message.
+BANNER_Y: int = 0
+## Text and colour shown when the game is lost.
+LOST_TEXT: str = "GAME OVER"
+LOST_COLOR: str = "red"
+## Text and colour shown when the game is won.
+WON_TEXT: str = "YOU WIN"
+WON_COLOR: str = "green"
