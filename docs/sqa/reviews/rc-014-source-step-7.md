@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial version | pending |
+| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial version | [428b05a] |
 
 ---
 
@@ -59,3 +59,4 @@ Go — every Mandatory criterion of QC-PY-001 passes or is not applicable (rows 
 
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
 [MIL-002]: ../../milestones/mil-002-game-build.md
+[428b05a]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/428b05a167760834f766c1c2f3cc87d1eda99c18
