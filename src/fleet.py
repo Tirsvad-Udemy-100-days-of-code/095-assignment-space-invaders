@@ -67,9 +67,18 @@ class Fleet:
         @param y Vertical position of the bullet.
         @return True when an alien was hit and removed.
         """
-        for alien in self.aliens:
-            if rules.is_hit(x, y, alien.xcor(), alien.ycor(), constants.HIT_DISTANCE):
-                alien.hideturtle()
-                self.aliens.remove(alien)
-                return True
-        return False
+        hit = next(
+            (
+                alien
+                for alien in self.aliens
+                if rules.is_hit(
+                    x, y, alien.xcor(), alien.ycor(), constants.HIT_DISTANCE
+                )
+            ),
+            None,
+        )
+        if hit is None:
+            return False
+        hit.hideturtle()
+        self.aliens.remove(hit)
+        return True
