@@ -98,7 +98,7 @@ Tests that open a `turtle` window are skipped on your machine, so a test run nev
 
 ```bash
 docker build -t space-invaders-shots tools
-docker run --rm -v "$PWD:/work" -e SPACE_INVADERS_GUI_TESTS=1 -e PYTHONPATH=src --entrypoint bash space-invaders-shots -c "xvfb-run -a python -m pytest"
+docker run --rm -v "$PWD:/work" -e SPACE_INVADERS_GUI_TESTS=1 -e PYTHONPATH=src --entrypoint bash space-invaders-shots -c "timeout 120 xvfb-run -a python -m pytest"
 ```
 
 Optional checks:

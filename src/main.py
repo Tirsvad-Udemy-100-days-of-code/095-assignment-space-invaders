@@ -5,6 +5,7 @@
 import turtle
 
 import constants
+from ship import Ship
 
 
 def create_screen() -> turtle.Screen:
@@ -35,6 +36,10 @@ def run_frame(screen: turtle.Screen) -> None:
 def main() -> None:
     """@brief Open the window and run the game until the window is closed."""
     screen = create_screen()
+    ship = Ship()
+    screen.listen()
+    screen.onkeypress(ship.go_left, "Left")
+    screen.onkeypress(ship.go_right, "Right")
     run_frame(screen)
     screen.mainloop()
 
