@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial version | pending |
+| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial version | [587a239] |
 
 ---
 
@@ -66,3 +66,4 @@ Go — all QC-BC-001 and QC-LANG-001 criteria pass; criteria 3, 5 and 9 of QC-LA
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
 [BC-001]: ../../business-case.md
 [SA-001]: ../../stakeholder-analysis.md
+[587a239]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/587a2399dcf6574753ed41a81dc5fec6f6f3e9c0

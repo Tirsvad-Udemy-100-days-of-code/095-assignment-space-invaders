@@ -11,8 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
-| 2026-11-21 | Accepted | Jens Tirsvad Nielsen | Stand-in for S01 | Accepted with a Go (RC-003); reviewed in autonomous mode, not independent | pending |
+| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [587a239] |
+| 2026-11-21 | Accepted | Jens Tirsvad Nielsen | Stand-in for S01 | Accepted with a Go (RC-003); reviewed in autonomous mode, not independent | [587a239] |
 
 ---
 
@@ -82,3 +82,4 @@ Each gateway needs the one before it. A No-Go returns the gateway to S01 and mov
 
 [BC-001]: ./business-case.md
 [SA-001]: ./stakeholder-analysis.md
+[587a239]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/587a2399dcf6574753ed41a81dc5fec6f6f3e9c0
