@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial review record; verdict Go-with-conditions (autonomous, not independent); the README screenshots of MIL-003 are covered by the same review | pending |
+| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial review record; verdict Go-with-conditions (autonomous, not independent); the README screenshots of MIL-003 are covered by the same review | [0449c45] |
 
 ---
 
@@ -58,3 +58,4 @@ Go-with-conditions — every Mandatory criterion passes except criterion 14, whi
 [WIKI]: ../../wiki/
 [MIL-003]: ../../milestones/mil-003-wiki-and-screenshots.md
 [QC-WIKI-001]: ../../../framework/qc/artifacts/qc-wiki.md
+[0449c45]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/0449c455073ca4c58225d1673c46ee6fcf4d7ade

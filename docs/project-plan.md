@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-21 | Deprecated | Jens Tirsvad Nielsen | Stand-in for S01 | Accepted with a Go (RC-003); reviewed in autonomous mode, not independent | [587a239] |
-| 2026-11-21 | Accepted | Jens Tirsvad Nielsen | Stand-in for S01 | Linked the three milestones of the git host in the schedule and updated the open issues; reviewed in autonomous mode, not independent (RC-018) | pending |
+| 2026-11-21 | Accepted | Jens Tirsvad Nielsen | Stand-in for S01 | Linked the three milestones of the git host in the schedule and updated the open issues; reviewed in autonomous mode, not independent (RC-018) | [0449c45] |
 
 ---
 
@@ -86,3 +86,4 @@ Each gateway needs the one before it. A No-Go returns the gateway to S01 and mov
 [MIL-003]: ./milestones/mil-003-wiki-and-screenshots.md
 [SA-001]: ./stakeholder-analysis.md
 [587a239]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/587a2399dcf6574753ed41a81dc5fec6f6f3e9c0
+[0449c45]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/0449c455073ca4c58225d1673c46ee6fcf4d7ade

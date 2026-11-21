@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial version | pending |
+| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | Stand-in for S01 | Initial version | [0449c45] |
 
 ---
 
@@ -46,3 +46,4 @@ Go — criterion 14 of QC-PP-001 passes and no other criterion is affected. Stan
 [RC-003]: ./rc-003-project-plan.md
 [QC-PP-001]: ../../../framework/qc/artifacts/qc-project-plan.md
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
+[0449c45]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/0449c455073ca4c58225d1673c46ee6fcf4d7ade
