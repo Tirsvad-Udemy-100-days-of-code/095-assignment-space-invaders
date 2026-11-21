@@ -52,7 +52,7 @@ ALIEN_SPACING_X: int = 70
 ## Vertical distance between two alien rows.
 ALIEN_SPACING_Y: int = 45
 ## Vertical position of the top alien row.
-FLEET_TOP_Y: int = 260
+FLEET_TOP_Y: int = 230
 ## Stretch factors of the alien shape (width, length).
 ALIEN_STRETCH: tuple[float, float] = (1.2, 1.2)
 
@@ -109,3 +109,22 @@ LOST_COLOR: str = "red"
 ## Text and colour shown when the game is won.
 WON_TEXT: str = "YOU WIN"
 WON_COLOR: str = "green"
+
+## Points for an alien by row, from the top row down.
+ALIEN_POINTS: tuple[int, ...] = (50, 40, 30, 20, 10)
+## Lives the player starts with.
+LIVES_START: int = 3
+## Position of the score line, at the top left.
+SCOREBOARD_POSITION: tuple[int, int] = (-380, 265)
+## Font of the score line.
+SCOREBOARD_FONT: tuple[str, int, str] = ("Courier", 16, "bold")
+## Colour of the score line.
+SCOREBOARD_COLOR: str = "white"
+## Colour of the bullets the aliens fire.
+ALIEN_BULLET_COLOR: str = "red"
+## Pixels an alien bullet moves down per frame.
+ALIEN_BULLET_STEP: int = 6
+## Seconds between two alien shots.
+ALIEN_FIRE_INTERVAL: float = 2.0
+## Distance between an alien bullet and the ship that counts as a hit.
+SHIP_HIT_DISTANCE: int = 20

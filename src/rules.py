@@ -16,14 +16,14 @@ def clamp(value: float, low: float, high: float) -> float:
     return max(low, min(high, value))
 
 
-def has_left_screen_top(y: float, top: float) -> bool:
-    """@brief Tell whether something moving up has passed the top edge.
+def has_left_screen(y: float, limit: float) -> bool:
+    """@brief Tell whether something has passed the top or the bottom edge.
 
     @param y Vertical position.
-    @param top Vertical position of the top edge.
-    @return True when `y` is above `top`.
+    @param limit Distance of both edges from the centre.
+    @return True when `y` is further from the centre than `limit`.
     """
-    return y > top
+    return abs(y) > limit
 
 
 def fleet_positions(
@@ -137,22 +137,40 @@ def game_state(
     ship_position: tuple[float, float],
     touch_distance: float,
     line: float,
+    lives: int,
 ) -> str:
     """@brief Decide whether the game goes on, is lost or is won.
 
     The game is lost when an alien touches the ship or reaches the ship's row,
-    and won when no alien is left.
+    or when no life is left, and won when no alien is left.
 
     @param alien_positions Positions of the aliens still alive.
     @param ship_position Position of the ship.
     @param touch_distance Largest centre distance that counts as touching.
     @param line Alien height at which the ship's row is reached.
+    @param lives Lives the player has left; the game is lost at zero.
     @return One of the `STATE_*` values of the constants module.
     """
     if not alien_positions:
         return constants.STATE_WON
+    if lives <= 0:
+        return constants.STATE_LOST
     ship_x, ship_y = ship_position
     for x, y in alien_positions:
         if y <= line or is_hit(x, y, ship_x, ship_y, touch_distance):
             return constants.STATE_LOST
     return constants.STATE_PLAYING
+
+
+def lowest_per_column(columns: list[int], ys: list[float]) -> list[int]:
+    """@brief Find the lowest object of every column.
+
+    @param columns Column number of each object.
+    @param ys Vertical position of each object.
+    @return The index of the lowest object of each column, in column order.
+    """
+    lowest: dict[int, int] = {}
+    for index, (column, y) in enumerate(zip(columns, ys, strict=True)):
+        if column not in lowest or y < ys[lowest[column]]:
+            lowest[column] = index
+    return [lowest[column] for column in sorted(lowest)]

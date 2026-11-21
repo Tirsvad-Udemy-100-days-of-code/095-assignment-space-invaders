@@ -24,7 +24,7 @@ Documentation = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-as
 dev = ["pytest>=8"]
 
 [tool.setuptools]
-py-modules = ["main", "constants", "rules", "ship", "bullet", "game", "alien", "fleet", "barrier", "banner"]
+py-modules = ["main", "constants", "rules", "ship", "bullet", "game", "alien", "fleet", "barrier", "banner", "scoreboard"]
 
 [tool.setuptools.package-dir]
 "" = "src"

@@ -15,12 +15,17 @@ def test_clamp_lowers_a_value_above_the_range() -> None:
     assert rules.clamp(15, 0, 10) == 10
 
 
-def test_a_bullet_below_the_top_edge_is_still_on_screen() -> None:
-    assert not rules.has_left_screen_top(100, 300)
+def test_a_bullet_inside_the_screen_is_still_on_screen() -> None:
+    assert not rules.has_left_screen(100, 300)
+    assert not rules.has_left_screen(-100, 300)
 
 
 def test_a_bullet_above_the_top_edge_has_left_the_screen() -> None:
-    assert rules.has_left_screen_top(301, 300)
+    assert rules.has_left_screen(301, 300)
+
+
+def test_a_bullet_below_the_bottom_edge_has_left_the_screen() -> None:
+    assert rules.has_left_screen(-301, 300)
 
 
 def test_fleet_has_one_position_per_alien() -> None:
@@ -97,19 +102,34 @@ def test_barrier_blocks_are_laid_out_row_by_row() -> None:
 
 
 def test_the_game_goes_on_while_aliens_are_far_away() -> None:
-    state = rules.game_state([(0, 200)], (0, -250), 30, -230)
+    state = rules.game_state([(0, 200)], (0, -250), 30, -230, 3)
     assert state == "playing"
 
 
 def test_the_game_is_lost_when_an_alien_touches_the_ship() -> None:
-    state = rules.game_state([(0, 200), (10, -240)], (0, -250), 30, -300)
+    state = rules.game_state([(0, 200), (10, -240)], (0, -250), 30, -300, 3)
     assert state == "lost"
 
 
 def test_the_game_is_lost_when_an_alien_reaches_the_ship_row() -> None:
-    state = rules.game_state([(300, -230)], (0, -250), 30, -230)
+    state = rules.game_state([(300, -230)], (0, -250), 30, -230, 3)
     assert state == "lost"
 
 
 def test_the_game_is_won_when_no_alien_is_left() -> None:
-    assert rules.game_state([], (0, -250), 30, -230) == "won"
+    assert rules.game_state([], (0, -250), 30, -230, 3) == "won"
+
+
+def test_the_game_is_lost_when_no_life_is_left() -> None:
+    state = rules.game_state([(0, 200)], (0, -250), 30, -230, 0)
+    assert state == "lost"
+
+
+def test_the_lowest_alien_of_each_column_is_found() -> None:
+    columns = [0, 1, 0, 1]
+    ys = [100, 100, 50, 80]
+    assert rules.lowest_per_column(columns, ys) == [2, 3]
+
+
+def test_no_column_has_no_lowest_alien() -> None:
+    assert rules.lowest_per_column([], []) == []

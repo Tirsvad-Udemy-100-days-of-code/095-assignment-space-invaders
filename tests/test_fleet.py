@@ -77,3 +77,33 @@ def test_the_fleet_moves_faster_when_aliens_are_gone(screen) -> None:
     start = fleet.aliens[0].xcor()
     assert fleet.update(fleet.last_move + constants.FLEET_MOVE_INTERVAL / 2)
     assert fleet.aliens[0].xcor() == start + constants.FLEET_STEP_X
+
+
+def test_a_hit_returns_the_points_of_the_alien(screen) -> None:
+    from fleet import Fleet
+
+    fleet = Fleet()
+    top = fleet.aliens[0]
+    assert fleet.remove_hit(top.xcor(), top.ycor()) == constants.ALIEN_POINTS[0]
+
+
+def test_the_shooter_is_the_lowest_alien_of_its_column(screen) -> None:
+    import random
+
+    from fleet import Fleet
+
+    fleet = Fleet()
+    shooter = fleet.choose_shooter(random.Random(1))
+    column = [alien for alien in fleet.aliens if alien.column == shooter.column]
+    assert shooter.ycor() == min(alien.ycor() for alien in column)
+
+
+def test_nobody_shoots_when_no_alien_is_left(screen) -> None:
+    import random
+
+    from fleet import Fleet
+
+    fleet = Fleet()
+    for alien in list(fleet.aliens):
+        fleet.remove_hit(alien.xcor(), alien.ycor())
+    assert fleet.choose_shooter(random.Random(1)) is None
