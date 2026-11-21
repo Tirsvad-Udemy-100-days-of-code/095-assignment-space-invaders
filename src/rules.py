@@ -100,3 +100,31 @@ def move_interval(base: float, remaining: int, total: int, minimum: float) -> fl
     if total <= 0:
         return base
     return max(minimum, base * remaining / total)
+
+
+def barrier_positions(
+    groups: int,
+    columns: int,
+    rows: int,
+    block: float,
+    group_spacing: float,
+    top_y: float,
+) -> list[tuple[float, float]]:
+    """@brief Work out where each barrier block goes.
+
+    @param groups Number of barriers, spread evenly around the centre.
+    @param columns Blocks per row in a barrier.
+    @param rows Block rows in a barrier.
+    @param block Width and height of a block.
+    @param group_spacing Horizontal distance between barrier centres.
+    @param top_y Vertical position of the top block row.
+    @return Block positions barrier by barrier, each row from left to right.
+    """
+    positions = []
+    for group in range(groups):
+        centre = (group - (groups - 1) / 2) * group_spacing
+        for row in range(rows):
+            for column in range(columns):
+                x = centre + (column - (columns - 1) / 2) * block
+                positions.append((x, top_y - row * block))
+    return positions
