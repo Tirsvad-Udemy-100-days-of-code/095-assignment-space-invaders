@@ -2,6 +2,7 @@
 @brief The game: it owns the objects, reads the keys and runs the frame loop.
 """
 
+import time
 import turtle
 
 import constants
@@ -34,6 +35,7 @@ class Game:
     def tick(self) -> None:
         """@brief Advance the game by one frame and schedule the next one."""
         self.bullet.move()
+        self.fleet.update(time.monotonic())
         self.screen.update()
         self.screen.ontimer(self.tick, constants.FRAME_DELAY_MS)
 

@@ -55,3 +55,12 @@ ALIEN_SPACING_Y: int = 45
 FLEET_TOP_Y: int = 260
 ## Stretch factors of the alien shape (width, length).
 ALIEN_STRETCH: tuple[float, float] = (1.2, 1.2)
+
+## Seconds between two moves of the fleet: it moves closer once a second.
+FLEET_MOVE_INTERVAL: float = 1.0
+## Pixels the fleet moves sideways per move.
+FLEET_STEP_X: int = 20
+## Pixels the fleet drops when it turns at an edge.
+FLEET_DROP: int = 25
+## Largest horizontal position an alien may reach.
+FLEET_EDGE_X: int = SCREEN_WIDTH // 2 - 40

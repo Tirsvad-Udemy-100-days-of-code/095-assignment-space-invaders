@@ -42,3 +42,34 @@ def fleet_positions(
         for row in range(rows)
         for column in range(columns)
     ]
+
+
+def is_due(now: float, last: float, interval: float) -> bool:
+    """@brief Tell whether an interval has passed since the last time.
+
+    @param now Current time in seconds.
+    @param last Time of the previous move in seconds.
+    @param interval Seconds between two moves.
+    @return True when at least `interval` seconds have passed.
+    """
+    return now - last >= interval
+
+
+def next_fleet_move(
+    xs: list[float], direction: int, step: float, edge: float, drop: float
+) -> tuple[float, float, int]:
+    """@brief Decide the next move of the fleet.
+
+    The fleet keeps going sideways. When the next step would take an alien past
+    the edge, it drops instead and turns around.
+
+    @param xs Horizontal positions of all aliens.
+    @param direction 1 for right, -1 for left.
+    @param step Pixels to move sideways.
+    @param edge Largest allowed distance from the centre.
+    @param drop Pixels to move down when turning.
+    @return The change in x, the change in y (negative is down) and the new direction.
+    """
+    if xs and max(abs(x + step * direction) for x in xs) > edge:
+        return 0, -drop, -direction
+    return step * direction, 0, direction
