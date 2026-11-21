@@ -64,3 +64,8 @@ FLEET_STEP_X: int = 20
 FLEET_DROP: int = 25
 ## Largest horizontal position an alien may reach.
 FLEET_EDGE_X: int = SCREEN_WIDTH // 2 - 40
+
+## Distance between bullet and alien centres that counts as a hit.
+HIT_DISTANCE: int = 22
+## Shortest time between two fleet moves, reached when few aliens are left.
+FLEET_MIN_INTERVAL: float = 0.2
