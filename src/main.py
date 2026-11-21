@@ -1,11 +1,11 @@
 """@file main.py
-@brief Entry point of the Space Invaders game: the screen and the game loop.
+@brief Entry point of the Space Invaders game.
 """
 
 import turtle
 
 import constants
-from ship import Ship
+from game import Game
 
 
 def create_screen() -> turtle.Screen:
@@ -24,24 +24,9 @@ def create_screen() -> turtle.Screen:
     return screen
 
 
-def run_frame(screen: turtle.Screen) -> None:
-    """@brief Draw one frame and schedule the next one.
-
-    @param screen The game window.
-    """
-    screen.update()
-    screen.ontimer(lambda: run_frame(screen), constants.FRAME_DELAY_MS)
-
-
 def main() -> None:
     """@brief Open the window and run the game until the window is closed."""
-    screen = create_screen()
-    ship = Ship()
-    screen.listen()
-    screen.onkeypress(ship.go_left, "Left")
-    screen.onkeypress(ship.go_right, "Right")
-    run_frame(screen)
-    screen.mainloop()
+    Game(create_screen()).run()
 
 
 if __name__ == "__main__":
