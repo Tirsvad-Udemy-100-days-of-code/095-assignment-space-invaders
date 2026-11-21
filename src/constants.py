@@ -40,3 +40,18 @@ BULLET_STRETCH: tuple[float, float] = (0.2, 1.0)
 BULLET_START_OFFSET: int = 20
 ## Vertical position above which the bullet has left the screen.
 SCREEN_TOP: int = SCREEN_HEIGHT // 2
+
+## Number of alien rows.
+ALIEN_ROWS: int = 5
+## Number of aliens in a row.
+ALIEN_COLUMNS: int = 8
+## Colours of the alien rows, from the top row down.
+ALIEN_COLORS: tuple[str, ...] = ("red", "orange", "yellow", "cyan", "magenta")
+## Horizontal distance between two aliens.
+ALIEN_SPACING_X: int = 70
+## Vertical distance between two alien rows.
+ALIEN_SPACING_Y: int = 45
+## Vertical position of the top alien row.
+FLEET_TOP_Y: int = 260
+## Stretch factors of the alien shape (width, length).
+ALIEN_STRETCH: tuple[float, float] = (1.2, 1.2)
