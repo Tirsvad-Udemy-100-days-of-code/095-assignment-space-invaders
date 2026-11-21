@@ -13,4 +13,4 @@ def test_title_is_set() -> None:
 
 
 def test_frame_delay_is_positive() -> None:
-    assert constants.FRAME_DELAY > 0
+    assert constants.FRAME_DELAY_MS > 0
