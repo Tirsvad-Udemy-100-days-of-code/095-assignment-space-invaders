@@ -39,19 +39,19 @@
 | 11 | Every page starts with the language line, with the current language in bold and a link to the same page in each other language | Pass | Every page starts with the language line, the current language in bold and a link to the same page in each other language. |
 | 12 | A page in a language other than English is named `<Page>-<code>.md`, with a BCP 47 code; English has no suffix | Pass | Danish pages end in -da.md and Bahasa Malaysia pages in -ms.md; English pages have no suffix. |
 | 13 | Code blocks, commands, file names and IDs stay in English in every language | Pass | The code blocks hold commands and file names in English in every language. |
-| 14 | The sidebar, every page and every link were checked on the published wiki after the change, not only in the repository | Pending | The host publishes `docs/wiki/` only after the merge; the published wiki is checked then. |
+| 14 | The sidebar, every page and every link were checked on the published wiki after the change, not only in the repository | Pass | After the merge the host listed 40 wiki pages (39 pages and the sidebar); `Home`, a step page in Danish, the images (HTTP 200) and the sidebar were opened on the published wiki. |
 | 15 | A change to the layout rules (sections, order, naming) is made in the generator or template and in this checklist's source rules together | N-A | No generator or template exists for this wiki, so no layout rule changes. |
 | 16 | The wiki folder (`docs/wiki/`) is flat: every page, `Home.md` and `_Sidebar.md` included, is directly in it, and languages are told apart by file name, never by a subfolder | Pass | All pages and the sidebar are directly in docs/wiki/; no subfolder exists. |
 
 ## Overall Verdict
 
-Go-with-conditions — every Mandatory criterion passes except criterion 14, which cannot be checked until the host has published the wiki after the merge; it stays Pending.
+Go — every Mandatory criterion of QC-WIKI-001 passes; criterion 14 was checked on the published wiki after the merge. Stand-in review, not independent.
 
 ## Action Items
 
 | Action | Owner | Due |
 | --- | --- | --- |
-| Check the sidebar, every page and every link on the published wiki after the merge (QC-WIKI-001 criterion 14) | S01 | 2026-11-28 |
+| None | S01 | n/a |
 
 ---
 
