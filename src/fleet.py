@@ -2,6 +2,7 @@
 @brief The grid of alien ships.
 """
 
+import random
 import time
 
 import constants
@@ -26,9 +27,10 @@ class Fleet:
         )
         self.aliens: list[Alien] = []
         for index, (x, y) in enumerate(positions):
-            row = index // constants.ALIEN_COLUMNS
+            row, column = divmod(index, constants.ALIEN_COLUMNS)
             color = constants.ALIEN_COLORS[row % len(constants.ALIEN_COLORS)]
-            self.aliens.append(Alien(x, y, color))
+            points = constants.ALIEN_POINTS[row % len(constants.ALIEN_POINTS)]
+            self.aliens.append(Alien(x, y, color, points, column))
 
     def update(self, now: float) -> bool:
         """@brief Move the fleet when a second has passed.
@@ -60,12 +62,12 @@ class Fleet:
         for alien in self.aliens:
             alien.goto(alien.xcor() + change_x, alien.ycor() + change_y)
 
-    def remove_hit(self, x: float, y: float) -> bool:
+    def remove_hit(self, x: float, y: float) -> int:
         """@brief Remove the alien that a bullet at a position hits, if any.
 
         @param x Horizontal position of the bullet.
         @param y Vertical position of the bullet.
-        @return True when an alien was hit and removed.
+        @return The points of the removed alien, or 0 when nothing was hit.
         """
         hit = next(
             (
@@ -78,7 +80,21 @@ class Fleet:
             None,
         )
         if hit is None:
-            return False
+            return 0
         hit.hideturtle()
         self.aliens.remove(hit)
-        return True
+        return hit.points
+
+    def choose_shooter(self, rng: random.Random) -> Alien | None:
+        """@brief Pick an alien to fire: the lowest one of a random column.
+
+        @param rng Source of randomness.
+        @return The chosen alien, or None when no alien is left.
+        """
+        if not self.aliens:
+            return None
+        lowest = rules.lowest_per_column(
+            [alien.column for alien in self.aliens],
+            [alien.ycor() for alien in self.aliens],
+        )
+        return self.aliens[rng.choice(lowest)]
