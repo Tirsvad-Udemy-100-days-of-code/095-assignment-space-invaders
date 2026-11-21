@@ -24,6 +24,46 @@ The game is built in nine steps, one branch and one pull request per step. The
 guides, with a screenshot of every step and what each step taught, are in the
 [project wiki][documentation], in English, Dansk and Bahasa Melayu.
 
+### Build steps
+
+Each step is one branch and one pull request. The wiki explains what each step taught.
+
+**Step 1: Game screen.** A black window and a frame loop. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-1-Game-Screen))
+
+![Game screen](docs/images/step-1-screen.png)
+
+**Step 2: Spaceship.** The ship moves left and right and stops at the edges. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-2-Spaceship))
+
+![Spaceship](docs/images/step-2-ship.png)
+
+**Step 3: Shooting.** <kbd>Space</kbd> fires one bullet at a time. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-3-Shooting))
+
+![Shooting](docs/images/step-3-shooting.png)
+
+**Step 4: Alien fleet.** Five rows of eight aliens. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-4-Alien-Fleet))
+
+![Alien fleet](docs/images/step-4-fleet.png)
+
+**Step 5: Alien movement.** Every second the fleet moves closer. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-5-Alien-Movement))
+
+![Alien movement](docs/images/step-5-movement.png)
+
+**Step 6: Shooting aliens.** A bullet removes an alien; the fleet speeds up. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-6-Shooting-Aliens))
+
+![Shooting aliens](docs/images/step-6-hits.png)
+
+**Step 7: Barriers.** Barriers absorb bullets and wear out. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-7-Barriers))
+
+![Barriers](docs/images/step-7-barriers.png)
+
+**Step 8: Game over and win.** Aliens touch the ship: game over. No aliens left: you win. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-8-Game-Over-and-Win))
+
+![Game over and win](docs/images/step-8-game-over.png)
+
+**Step 9: Score and lives.** Score, lives and the aliens' return fire. ([wiki](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/wiki/Step-9-Score-and-Lives))
+
+![Score and lives](docs/images/step-9-score-lives.png)
+
 ### Project layout
 
 | Path | Contents |
