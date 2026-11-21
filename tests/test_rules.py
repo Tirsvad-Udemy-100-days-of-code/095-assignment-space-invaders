@@ -38,3 +38,24 @@ def test_fleet_is_centred_and_laid_out_row_by_row() -> None:
         (0, 150),
         (100, 150),
     ]
+
+
+def test_a_move_is_not_due_before_the_interval() -> None:
+    assert not rules.is_due(10.5, 10.0, 1.0)
+
+
+def test_a_move_is_due_after_the_interval() -> None:
+    assert rules.is_due(11.0, 10.0, 1.0)
+
+
+def test_fleet_moves_sideways_in_its_direction() -> None:
+    assert rules.next_fleet_move([-100, 0, 100], 1, 20, 360, 25) == (20, 0, 1)
+    assert rules.next_fleet_move([-100, 0, 100], -1, 20, 360, 25) == (-20, 0, -1)
+
+
+def test_fleet_drops_and_turns_at_the_right_edge() -> None:
+    assert rules.next_fleet_move([-100, 350], 1, 20, 360, 25) == (0, -25, -1)
+
+
+def test_fleet_drops_and_turns_at_the_left_edge() -> None:
+    assert rules.next_fleet_move([-350, 100], -1, 20, 360, 25) == (0, -25, 1)
