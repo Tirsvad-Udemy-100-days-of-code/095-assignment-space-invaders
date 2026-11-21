@@ -32,10 +32,18 @@ class Game:
         """@brief Fire a bullet from the ship."""
         self.bullet.fire(self.ship.xcor(), self.ship.ycor())
 
+    def check_bullet_hit(self) -> None:
+        """@brief Remove an alien that the bullet hit and let the ship fire again."""
+        if self.bullet.active and self.fleet.remove_hit(
+            self.bullet.xcor(), self.bullet.ycor()
+        ):
+            self.bullet.reset_bullet()
+
     def tick(self) -> None:
         """@brief Advance the game by one frame and schedule the next one."""
         self.bullet.move()
         self.fleet.update(time.monotonic())
+        self.check_bullet_hit()
         self.screen.update()
         self.screen.ontimer(self.tick, constants.FRAME_DELAY_MS)
 

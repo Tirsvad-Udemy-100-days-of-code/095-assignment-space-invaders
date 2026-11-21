@@ -48,3 +48,32 @@ def test_fleet_drops_closer_when_it_reaches_the_edge(screen) -> None:
             break
     assert fleet.aliens[0].ycor() == top - constants.FLEET_DROP
     assert fleet.direction == -1
+
+
+def test_a_bullet_on_an_alien_removes_it(screen) -> None:
+    from fleet import Fleet
+
+    fleet = Fleet()
+    target = fleet.aliens[0]
+    assert fleet.remove_hit(target.xcor(), target.ycor())
+    assert len(fleet.aliens) == constants.ALIEN_ROWS * constants.ALIEN_COLUMNS - 1
+    assert target not in fleet.aliens
+
+
+def test_a_bullet_in_empty_space_hits_nothing(screen) -> None:
+    from fleet import Fleet
+
+    fleet = Fleet()
+    assert not fleet.remove_hit(0, constants.SHIP_Y)
+    assert len(fleet.aliens) == constants.ALIEN_ROWS * constants.ALIEN_COLUMNS
+
+
+def test_the_fleet_moves_faster_when_aliens_are_gone(screen) -> None:
+    from fleet import Fleet
+
+    fleet = Fleet()
+    for alien in fleet.aliens[: len(fleet.aliens) // 2]:
+        fleet.remove_hit(alien.xcor(), alien.ycor())
+    start = fleet.aliens[0].xcor()
+    assert fleet.update(fleet.last_move + constants.FLEET_MOVE_INTERVAL / 2)
+    assert fleet.aliens[0].xcor() == start + constants.FLEET_STEP_X

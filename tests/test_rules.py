@@ -59,3 +59,23 @@ def test_fleet_drops_and_turns_at_the_right_edge() -> None:
 
 def test_fleet_drops_and_turns_at_the_left_edge() -> None:
     assert rules.next_fleet_move([-350, 100], -1, 20, 360, 25) == (0, -25, 1)
+
+
+def test_objects_close_together_are_a_hit() -> None:
+    assert rules.is_hit(0, 0, 10, 10, 22)
+
+
+def test_objects_far_apart_are_not_a_hit() -> None:
+    assert not rules.is_hit(0, 0, 30, 0, 22)
+
+
+def test_a_full_fleet_moves_at_the_base_interval() -> None:
+    assert rules.move_interval(1.0, 40, 40, 0.2) == 1.0
+
+
+def test_a_smaller_fleet_moves_faster() -> None:
+    assert rules.move_interval(1.0, 20, 40, 0.2) == 0.5
+
+
+def test_the_interval_never_drops_below_the_minimum() -> None:
+    assert rules.move_interval(1.0, 1, 40, 0.2) == 0.2

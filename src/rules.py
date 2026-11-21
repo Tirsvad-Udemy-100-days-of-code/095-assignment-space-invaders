@@ -73,3 +73,30 @@ def next_fleet_move(
     if xs and max(abs(x + step * direction) for x in xs) > edge:
         return 0, -drop, -direction
     return step * direction, 0, direction
+
+
+def is_hit(x1: float, y1: float, x2: float, y2: float, distance: float) -> bool:
+    """@brief Tell whether two objects touch, by the distance between their centres.
+
+    @param x1 Horizontal position of the first object.
+    @param y1 Vertical position of the first object.
+    @param x2 Horizontal position of the second object.
+    @param y2 Vertical position of the second object.
+    @param distance Largest centre distance that counts as touching.
+    @return True when the centres are closer than `distance`.
+    """
+    return (x1 - x2) ** 2 + (y1 - y2) ** 2 < distance**2
+
+
+def move_interval(base: float, remaining: int, total: int, minimum: float) -> float:
+    """@brief Work out the time between fleet moves: fewer aliens move faster.
+
+    @param base Interval of the full fleet in seconds.
+    @param remaining Number of aliens still alive.
+    @param total Number of aliens at the start.
+    @param minimum Shortest allowed interval in seconds.
+    @return The interval, never below `minimum`.
+    """
+    if total <= 0:
+        return base
+    return max(minimum, base * remaining / total)

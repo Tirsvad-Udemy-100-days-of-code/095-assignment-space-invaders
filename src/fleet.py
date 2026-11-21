@@ -15,6 +15,7 @@ class Fleet:
     def __init__(self) -> None:
         """@brief Create the aliens row by row."""
         self.direction = 1
+        self.total = constants.ALIEN_ROWS * constants.ALIEN_COLUMNS
         self.last_move = time.monotonic()
         positions = rules.fleet_positions(
             constants.ALIEN_ROWS,
@@ -35,7 +36,13 @@ class Fleet:
         @param now Current time in seconds.
         @return True when the fleet moved.
         """
-        if not rules.is_due(now, self.last_move, constants.FLEET_MOVE_INTERVAL):
+        interval = rules.move_interval(
+            constants.FLEET_MOVE_INTERVAL,
+            len(self.aliens),
+            self.total,
+            constants.FLEET_MIN_INTERVAL,
+        )
+        if not rules.is_due(now, self.last_move, interval):
             return False
         self.last_move = now
         self.move()
@@ -52,3 +59,17 @@ class Fleet:
         )
         for alien in self.aliens:
             alien.goto(alien.xcor() + change_x, alien.ycor() + change_y)
+
+    def remove_hit(self, x: float, y: float) -> bool:
+        """@brief Remove the alien that a bullet at a position hits, if any.
+
+        @param x Horizontal position of the bullet.
+        @param y Vertical position of the bullet.
+        @return True when an alien was hit and removed.
+        """
+        for alien in self.aliens:
+            if rules.is_hit(x, y, alien.xcor(), alien.ycor(), constants.HIT_DISTANCE):
+                alien.hideturtle()
+                self.aliens.remove(alien)
+                return True
+        return False
