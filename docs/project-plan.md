@@ -11,8 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [587a239] |
-| 2026-11-21 | Accepted | Jens Tirsvad Nielsen | Stand-in for S01 | Accepted with a Go (RC-003); reviewed in autonomous mode, not independent | [587a239] |
+| 2026-11-21 | Deprecated | Jens Tirsvad Nielsen | Stand-in for S01 | Accepted with a Go (RC-003); reviewed in autonomous mode, not independent | [587a239] |
+| 2026-11-21 | Accepted | Jens Tirsvad Nielsen | Stand-in for S01 | Linked the three milestones of the git host in the schedule and updated the open issues; reviewed in autonomous mode, not independent (RC-018) | pending |
 
 ---
 
@@ -31,9 +31,9 @@ Schedules the three gateways of the Space Invaders project within one week, with
 
 | Gateway | Document | Window | Decision date | Owner | Stories | Main deliverable | Milestone |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Project setup | [MIL-001] | 2026-11-21 to 2026-11-22 | 2026-11-22 | S01 | none | Scaffold, README, screenshot harness, repository description and topics | not synced yet |
-| Game build | [MIL-002] | 2026-11-22 to 2026-11-26 | 2026-11-26 | S01 | none | Playable, tested game built in nine steps | not synced yet |
-| Wiki and screenshots | [MIL-003] | 2026-11-26 to 2026-11-28 | 2026-11-28 | S01 | none | README screenshots and wiki in three languages | not synced yet |
+| Project setup | [MIL-001] | 2026-11-21 to 2026-11-22 | 2026-11-22 | S01 | none | Scaffold, README, screenshot harness, repository description and topics | [milestone-698](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/milestone/698) |
+| Game build | [MIL-002] | 2026-11-22 to 2026-11-26 | 2026-11-26 | S01 | none | Playable, tested game built in nine steps | [milestone-699](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/milestone/699) |
+| Wiki and screenshots | [MIL-003] | 2026-11-26 to 2026-11-28 | 2026-11-28 | S01 | none | README screenshots and wiki in three languages | [milestone-700](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/milestone/700) |
 
 ```plantuml
 @startgantt
@@ -76,10 +76,13 @@ Each gateway needs the one before it. A No-Go returns the gateway to S01 and mov
 ## Open Issues
 
 - No use case or user story is modelled: the tasks are technical or documentation tasks, so the Stories column says `none`.
-- Milestones are published to the git host after acceptance; the links in the schedule are filled in then.
+- The git host published the three milestones after the first merge (milestones 698 to 700); MIL-001 and MIL-002 are finished and their issues are closed, and the milestones are closed when MIL-003 is merged.
 
 ---
 
 [BC-001]: ./business-case.md
+[MIL-001]: ./milestones/mil-001-project-setup.md
+[MIL-002]: ./milestones/mil-002-game-build.md
+[MIL-003]: ./milestones/mil-003-wiki-and-screenshots.md
 [SA-001]: ./stakeholder-analysis.md
 [587a239]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/095-assignment-space-invaders/commit/587a2399dcf6574753ed41a81dc5fec6f6f3e9c0
