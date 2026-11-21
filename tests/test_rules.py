@@ -79,3 +79,18 @@ def test_a_smaller_fleet_moves_faster() -> None:
 
 def test_the_interval_never_drops_below_the_minimum() -> None:
     assert rules.move_interval(1.0, 1, 40, 0.2) == 0.2
+
+
+def test_barrier_has_a_position_for_every_block() -> None:
+    positions = rules.barrier_positions(4, 4, 2, 20, 170, -140)
+    assert len(positions) == 32
+
+
+def test_barriers_are_spread_evenly_around_the_centre() -> None:
+    positions = rules.barrier_positions(2, 1, 1, 20, 100, -140)
+    assert positions == [(-50, -140), (50, -140)]
+
+
+def test_barrier_blocks_are_laid_out_row_by_row() -> None:
+    positions = rules.barrier_positions(1, 2, 2, 20, 100, -140)
+    assert positions == [(-10, -140), (10, -140), (-10, -160), (10, -160)]

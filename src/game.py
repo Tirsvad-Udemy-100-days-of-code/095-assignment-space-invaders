@@ -6,13 +6,14 @@ import time
 import turtle
 
 import constants
+from barrier import BarrierWall
 from bullet import Bullet
 from fleet import Fleet
 from ship import Ship
 
 
 class Game:
-    """@brief Ties the screen, the ship, the bullet and the fleet together."""
+    """@brief Ties screen, ship, bullet, fleet and barriers together."""
 
     def __init__(self, screen: turtle.Screen) -> None:
         """@brief Create the objects and bind the keys.
@@ -23,6 +24,7 @@ class Game:
         self.ship = Ship()
         self.bullet = Bullet()
         self.fleet = Fleet()
+        self.barriers = BarrierWall()
         screen.listen()
         screen.onkeypress(self.ship.go_left, "Left")
         screen.onkeypress(self.ship.go_right, "Right")
@@ -33,10 +35,11 @@ class Game:
         self.bullet.fire(self.ship.xcor(), self.ship.ycor())
 
     def check_bullet_hit(self) -> None:
-        """@brief Remove an alien that the bullet hit and let the ship fire again."""
-        if self.bullet.active and self.fleet.remove_hit(
-            self.bullet.xcor(), self.bullet.ycor()
-        ):
+        """@brief Let the bullet hit an alien or a barrier and fire again."""
+        if not self.bullet.active:
+            return
+        x, y = self.bullet.xcor(), self.bullet.ycor()
+        if self.barriers.absorb(x, y) or self.fleet.remove_hit(x, y):
             self.bullet.reset_bullet()
 
     def tick(self) -> None:

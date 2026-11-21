@@ -69,3 +69,22 @@ FLEET_EDGE_X: int = SCREEN_WIDTH // 2 - 40
 HIT_DISTANCE: int = 22
 ## Shortest time between two fleet moves, reached when few aliens are left.
 FLEET_MIN_INTERVAL: float = 0.2
+
+## Number of barriers between the ship and the aliens.
+BARRIER_GROUPS: int = 4
+## Blocks per barrier row.
+BARRIER_COLUMNS: int = 4
+## Block rows per barrier.
+BARRIER_ROWS: int = 2
+## Width and height of a barrier block in pixels.
+BARRIER_BLOCK: int = 20
+## Horizontal distance between the centres of two barriers.
+BARRIER_GROUP_SPACING: int = 170
+## Vertical position of the top block row of the barriers.
+BARRIER_Y: int = -140
+## Hits a barrier block takes before it is gone.
+BARRIER_HEALTH: int = 3
+## Block colours by remaining health, from 1 hit left to full health.
+BARRIER_COLORS: tuple[str, ...] = ("firebrick", "goldenrod", "forestgreen")
+## Distance between bullet and block centres that counts as a hit.
+BARRIER_HIT_DISTANCE: int = 14
